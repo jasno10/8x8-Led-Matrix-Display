@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+<script>
+    var activePattern = {{ active_pattern }};
+</script>
+<div class="content-section">
+    <form method="POST">
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Homepage</legend>
+            <div class="row">
+                <div class="col">
+                    <p class="fw-light">This is the interface representing the 8x8 LED Matrix.</p>
+                    <p class="fw-light">Each circle is a button. Clicking a button toggles an LED on or off.</p>
+                    <p class="fw-light" hidden>In the code, rows are represented by letters A to H while columns are represented by numbers 1 to 8.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-lg btn-info">Apply</button>
+                    <button type="reset" class="btn btn-lg btn-outline-info" onclick="pattern = resetButtons(pattern, event)">Reset</button>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col">
+                    {% include "led_matrix_table.html" %}
+                </div>
+                
+            </div>
+            <div class="row" hidden>
+                <div class="col">
+                    <input type="text" name="patternbox" class="form-control form-control-lg mt-2" id="arraybox" readonly />
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<script>
+    var pattern = activePattern;
+    loadButtons(activePattern);
+    displayClickedButtons(activePattern);
+</script>
+
+{% endblock %}

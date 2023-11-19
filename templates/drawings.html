@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block content %}
+<script>
+    var activePattern = {{ active_pattern }};
+</script>
+<div class="content-section">
+    <form method="POST">
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Custom Drawing</legend>
+            <div class="row">
+                <div class="col">
+                    <p class="fw-light">This is the page for displaying user-defined drawings.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <select name="drawing" id="drawing-menu" class="custom-select" onchange="updateLink()" required>
+                        {% for entry in drawings %}
+                        <option value="{{ entry[0] }}">{{ entry[1] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col">
+                    <button type="submit" class="btn btn-lg btn-info">Apply</button>
+                    <a href="modify_drawing" id="mod-link" class="btn btn-lg btn-outline-info">Modify Drawing</a>
+                    <a href="add_drawing" class="btn btn-lg btn-outline-info">Add Drawing</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mt-2">
+                    {% include "led_matrix_table.html" %}
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<script>
+    // var buttonsEnabled = {{ buttonsEnabled|default (True) | lower }};
+    var modLink = document.getElementById('mod-link');
+    var menu = document.getElementById('drawing-menu');
+
+    function updateLink() {
+        if (menu.value == "") {
+            modLink.href = "#";
+        }
+        modLink.href = "modify_drawing?id=" + menu.value;
+    }
+
+    updateLink();
+    loadButtons(activePattern);
+    disableAllButtons();
+</script>
+
+{% endblock %}

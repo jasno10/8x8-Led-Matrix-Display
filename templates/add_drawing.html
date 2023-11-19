@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block content %}
+<script>
+    var drawingPattern = [[], [], [], [], [], [], [], []];
+</script>
+<div class="content-section">
+    <form method="POST">
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Add Drawing</legend>
+            <div class="row">
+                <div class="col">
+                    <p class="fw-light">Add a new drawing pattern to the database.</p>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label for="namebox" class="fw-light">Drawing name:</label>
+                    <input type="text" name="drawing-name" class="form-control form-control-lg" id="namebox" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-info">Add</button>
+                    <button type="reset" class="btn btn-outline-info" onclick="pattern = resetButtons(pattern, event)">Reset</button>
+                    <a href="drawings" class="btn btn-outline-secondary">Cancel</a>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col">
+                    {% include "led_matrix_table.html" %}
+                </div>
+            </div>
+            <div class="row" hidden>
+                <div class="col">
+                    <input type="text" name="patternbox" class="form-control form-control-lg mt-2" id="arraybox" readonly />
+                </div>
+            </div>
+            <div class="row" {{ is_hidden }}>
+                <div class="col">
+                    <div class="alert alert-danger" role="alert">
+                        The drawing with the same name already exists.
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<script>
+    var pattern = drawingPattern;
+    // var buttonsEnabled = {{ buttonsEnabled|default (True) | lower }};
+    //loadButtons(drawingPattern);
+    displayClickedButtons(drawingPattern);
+    //idBox = document.getElementById('drawingId');
+    //idBox.value = drawingId;
+</script>
+
+{% endblock %}

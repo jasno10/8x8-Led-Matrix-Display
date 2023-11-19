@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <form method="POST">
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Settings</legend>
+            <div class="row">
+                <div class="col">
+                    <p class="fw-light">Close this server and shutdown or restart Raspberry Pi.</p>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col">
+                    <button class="btn btn-danger btn-large" name="operation" value="shutdown">Shutdown</button>
+                    <button class="btn btn-outline-danger btn-large" name="operation" value="reboot">Restart</button>
+                </div>
+            </div>
+
+            <legend class="border-bottom mb-4">Character Patterns</legend>
+            <div class="row">
+                <div class="col">
+                    <p class="fw-light">To edit a character patterns, select one from the dropdown menu and click Modify Character.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <select name="character" id="character-menu" class="custom-select" onchange="updateLink()">
+                        {% for entry in characters %}
+                        <option value="{{ entry[0] }}">{{ entry[1] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <a href="add-character" class="btn btn-outline-info mt-2">Add Character</a>
+                    <a href="modify-character" id="mod-link" class="btn btn-outline-info mt-2">Modify Character</a>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<script>
+    var modLink = document.getElementById('mod-link');
+    var menu = document.getElementById('character-menu');
+
+    function updateLink() {
+        modLink.href = "modify-character?id=" + menu.value;
+    }
+
+    updateLink();
+</script>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block content %}
+<script>
+    var drawingPattern = {{ character_pattern }};
+    var charId = {{ character_id }};
+    //var character = {{ character }};
+
+    //console.log(drawingPattern);
+    //console.log(charId);
+    // console.log(char);
+</script>
+<div class="content-section">
+    <form method="POST" action="">
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Modify Character</legend>
+            <div class="row">
+                <div class="col">
+                    <p class="fw-light">Modify character pattern here.</p>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label for="namebox" class="fw-light">Character:</label>
+                    <input type="text" name="character" class="form-control form-control-lg" id="charbox" value="{{ character }}" readonly required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-info">Save</button>
+                    <button type="reset" class="btn btn-outline-info" onclick="pattern = resetButtons(pattern, event)">Reset</button>
+                    <a href="settings" class="btn btn-outline-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-outline-danger" name="delete" value="true" hidden>Delete</button>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col">
+                    {% include "led_matrix_table.html" %}
+                </div>
+            </div>
+            <div class="row" hidden>
+                <div class="col">
+                    <input type="text" name="patternbox" class="form-control form-control-lg mt-2" id="arraybox" readonly />
+                    <input type="text" name="chara-id" class="form-control form-control-lg mt-2" id="charId" readonly />
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<script>
+    var pattern = drawingPattern;
+    loadButtons(drawingPattern);
+    displayClickedButtons(drawingPattern);
+    idBox = document.getElementById('charId');
+    idBox.value = charId;
+</script>
+
+{% endblock %}

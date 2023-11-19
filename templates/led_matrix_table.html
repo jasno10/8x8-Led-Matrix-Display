@@ -1,0 +1,116 @@
+<!--
+<script>
+    var activePattern = {{ active_pattern }};
+</script>
+ -->
+<!--<p>Pattern: {{ active_pattern }}</p>-->
+
+<table class="mb-3">
+    <tr>
+        <td></td>
+        <td class="align-middle" align="center">1</td>
+        <td class="align-middle" align="center">2</td>
+        <td class="align-middle" align="center">3</td>
+        <td class="align-middle" align="center">4</td>
+        <td class="align-middle" align="center">5</td>
+        <td class="align-middle" align="center">6</td>
+        <td class="align-middle" align="center">7</td>
+        <td class="align-middle" align="center">8</td>
+    </tr>
+    <!--ROW A-->
+    <tr>
+        <td class="align-middle" align="center">A</td>
+        <td><button class="led led-off" id="btnA1" onclick="toggleColor(this, 0, 0, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnA2" onclick="toggleColor(this, 0, 1, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnA3" onclick="toggleColor(this, 0, 2, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnA4" onclick="toggleColor(this, 0, 3, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnA5" onclick="toggleColor(this, 0, 4, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnA6" onclick="toggleColor(this, 0, 5, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnA7" onclick="toggleColor(this, 0, 6, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnA8" onclick="toggleColor(this, 0, 7, pattern, event)"></button></td>
+    </tr>
+    <!--ROW B-->
+    <tr>
+        <td class="align-middle" align="center">B</td>
+        <td><button class="led led-off" id="btnB1" onclick="toggleColor(this, 1, 0, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnB2" onclick="toggleColor(this, 1, 1, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnB3" onclick="toggleColor(this, 1, 2, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnB4" onclick="toggleColor(this, 1, 3, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnB5" onclick="toggleColor(this, 1, 4, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnB6" onclick="toggleColor(this, 1, 5, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnB7" onclick="toggleColor(this, 1, 6, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnB8" onclick="toggleColor(this, 1, 7, pattern, event)"></button></td>
+    </tr>
+    <!--ROW C-->
+    <tr>
+        <td class="align-middle" align="center">C</td>
+        <td><button class="led led-off" id="btnC1" onclick="toggleColor(this, 2, 0, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnC2" onclick="toggleColor(this, 2, 1, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnC3" onclick="toggleColor(this, 2, 2, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnC4" onclick="toggleColor(this, 2, 3, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnC5" onclick="toggleColor(this, 2, 4, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnC6" onclick="toggleColor(this, 2, 5, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnC7" onclick="toggleColor(this, 2, 6, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnC8" onclick="toggleColor(this, 2, 7, pattern, event)"></button></td>
+    </tr>
+    <!--ROW D-->
+    <tr>
+        <td class="align-middle" align="center">D</td>
+        <td><button class="led led-off" id="btnD1" onclick="toggleColor(this, 3, 0, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnD2" onclick="toggleColor(this, 3, 1, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnD3" onclick="toggleColor(this, 3, 2, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnD4" onclick="toggleColor(this, 3, 3, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnD5" onclick="toggleColor(this, 3, 4, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnD6" onclick="toggleColor(this, 3, 5, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnD7" onclick="toggleColor(this, 3, 6, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnD8" onclick="toggleColor(this, 3, 7, pattern, event)"></button></td>
+    </tr>
+    <!--ROW E-->
+    <tr>
+        <td class="align-middle" align="center">E</td>
+        <td><button class="led led-off" id="btnE1" onclick="toggleColor(this, 4, 0, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnE2" onclick="toggleColor(this, 4, 1, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnE3" onclick="toggleColor(this, 4, 2, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnE4" onclick="toggleColor(this, 4, 3, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnE5" onclick="toggleColor(this, 4, 4, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnE6" onclick="toggleColor(this, 4, 5, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnE7" onclick="toggleColor(this, 4, 6, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnE8" onclick="toggleColor(this, 4, 7, pattern, event)"></button></td>
+    </tr>
+    <!--ROW F-->
+    <tr>
+        <td class="align-middle" align="center">F</td>
+        <td><button class="led led-off" id="btnF1" onclick="toggleColor(this, 5, 0, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnF2" onclick="toggleColor(this, 5, 1, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnF3" onclick="toggleColor(this, 5, 2, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnF4" onclick="toggleColor(this, 5, 3, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnF5" onclick="toggleColor(this, 5, 4, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnF6" onclick="toggleColor(this, 5, 5, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnF7" onclick="toggleColor(this, 5, 6, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnF8" onclick="toggleColor(this, 5, 7, pattern, event)"></button></td>
+    </tr>
+    <!--ROW G-->
+    <tr>
+        <td class="align-middle" align="center">G</td>
+        <td><button class="led led-off" id="btnG1" onclick="toggleColor(this, 6, 0, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnG2" onclick="toggleColor(this, 6, 1, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnG3" onclick="toggleColor(this, 6, 2, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnG4" onclick="toggleColor(this, 6, 3, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnG5" onclick="toggleColor(this, 6, 4, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnG6" onclick="toggleColor(this, 6, 5, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnG7" onclick="toggleColor(this, 6, 6, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnG8" onclick="toggleColor(this, 6, 7, pattern, event)"></button></td>
+    </tr>
+    <!--ROW H-->
+    <tr>
+        <td class="align-middle" align="center">H</td>
+        <td><button class="led led-off" id="btnH1" onclick="toggleColor(this, 7, 0, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnH2" onclick="toggleColor(this, 7, 1, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnH3" onclick="toggleColor(this, 7, 2, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnH4" onclick="toggleColor(this, 7, 3, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnH5" onclick="toggleColor(this, 7, 4, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnH6" onclick="toggleColor(this, 7, 5, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnH7" onclick="toggleColor(this, 7, 6, pattern, event)"></button></td>
+        <td><button class="led led-off" id="btnH8" onclick="toggleColor(this, 7, 7, pattern, event)"></button></td>
+    </tr>
+</table>

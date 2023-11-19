@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+<script>
+    var activePattern = {{ active_pattern }};
+</script>
+<div class="content-section">
+    <form method="POST">
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Character</legend>
+            <div class="row">
+                <div class="col">
+                    <p class="fw-light">This is the page for displaying characters.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" maxlength="1" class="form-control" name="charabox" value="{{ char }}" required />
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col">
+                    <button type="submit" class="btn btn-lg btn-info">Apply</button>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col">
+                    {% include "led_matrix_table.html" %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="patternbox" class="form-control form-control-lg" id="arraybox" readonly />
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<script>
+    // var buttonsEnabled = {{ buttonsEnabled|default (True) | lower }};
+    loadButtons(activePattern);
+    displayClickedButtons(activePattern);
+    disableAllButtons();
+</script>
+
+{% endblock %}
